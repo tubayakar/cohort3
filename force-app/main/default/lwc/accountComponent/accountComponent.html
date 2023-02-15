@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 02-14-2023
+  @last modified on  : 02-15-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
@@ -15,30 +15,16 @@
 
 
             <template if:true={multiaccounts}>
-
-                <template for:each={multiaccounts} for:item="account">
-
-                    
-
-                    <lightning-card  key={account.Id} variant="Narrow"  title={account.Name} icon-name="standard:account">
-                     
-                        <p class="slds-p-horizontal_small">
-                       
-                        {account.Phone} <br/>
-                        {account.Website} <br/>
-                        {account.Industry} <br/>
-                          
-                        </p>
-
-                        <p slot="footer">{account.Id}}</p>
-                    </lightning-card>
-
-
-                </template>
+                
+                    <lightning-datatable
+                            key-field="id"
+                            data={multiaccounts}
+                            columns={columns}>
+                    </lightning-datatable>         
 
             </template>
 
         </p>
-        <p slot="footer">Last 10 Accounts</p>
+        <p slot="footer">{searchText} contain Accounts</p>
     </lightning-card>
 </template>

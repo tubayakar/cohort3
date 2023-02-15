@@ -4,12 +4,23 @@ import { LightningElement,wire,track } from 'lwc';
 
 import retrive from '@salesforce/apex/accountLWCController.retrive';
 
+
+const columns = [
+    { label: 'Company Name', fieldName: 'Name' },
+    { label: 'Website', fieldName: 'Website', type: 'url' },
+    { label: 'Phone', fieldName: 'Phone', type: 'phone' },
+    { label: 'Industry', fieldName: 'Industry' },
+];
+
+
 export default class AccountComponent extends LightningElement {
 
     // properties
     @track multiaccounts;
 
     searchText;
+    columns=columns;
+
 
 
     // wire
