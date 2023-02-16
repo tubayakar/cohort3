@@ -8,32 +8,31 @@ import retrive from '@salesforce/apex/leadLWCController.retrive';
 
 export default class LeadComponent extends LightningElement {
 
+
+      @track multileads;
+
+      searchText;
+
+
     //wire
-    //@wire(retrive) leads;
+    @wire(retrive,{searchterm: '$searchText'}) leads;
 
  
-   @track multileads;
+      renderedCallback(){
 
-   connectedCallback(){
-
-      // imperative
-
-      retrive()
-      .then(data=>{
-
-            console.log('retrive Leads....');
-            console.log(data);
-            this.multileads=data;
-
-      })
-
-      .catch(err=>{
-            console.log(err);
-
-      })
+            console.log(this.leads);
+      }
 
 
-   }
+      textChangeHandler(){
+            this.searchText = event.target.value;
+            console.log(this.searchText);
+      }
+
+
+            connectedCallback(){
+                  
+            }
 
 
 }

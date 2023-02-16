@@ -2,7 +2,7 @@
   @description       : 
   @author            : ChangeMeIn@UserSettingsUnder.SFDoc
   @group             : 
-  @last modified on  : 02-15-2023
+  @last modified on  : 02-16-2023
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
@@ -10,16 +10,22 @@
         <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
         <p class="slds-p-horizontal_small">Lead Information:
 
-            <template if:true={multileads}>
 
-                <template for:each={multileads} for:item="leads">
+            <lightning-input type="text" label="Enter FirstName" value={searchText} 
+            onchange={textChangeHandler}></lightning-input>
+
+            <template if:true={leads.data}>
+
+                <template for:each={leads.data} for:item="lead">
 
                     <p key={lead.Id}> {lead.FirstName} - {lead.LastName} - {lead.Phone} </p>
 
                 </template>
 
             </template>
+
+
         </p>
-        <p slot="footer">Last 5 Leads Source Web</p>
+        <p slot="footer">Here is your lead</p>
     </lightning-card>
 </template>
