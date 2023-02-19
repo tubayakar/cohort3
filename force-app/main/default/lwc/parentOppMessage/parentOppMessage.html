@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-19-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Narrow"  title="Opportunity Announcemnents" icon-name="custom:custom93">
+        <lightning-button-icon  icon-name="custom:custom41" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <p class="slds-p-horizontal_small">
+            Comed last message from oppportunity note page: 
+            <br/> 
+            {comedchildmessage}
+        </p>
+        <p slot="This is for you...">Card Footer</p>
+    </lightning-card>
+
+    <br/>
+
+    <c-child-opp-message onchangemessage={messageReceivedfromChild} > </c-child-opp-message>
+</template>
